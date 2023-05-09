@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+    label {
+      display:flex;
+      align-items:center;
+      justify-content: space-around;
+      width: 100px;
+    }
+
+    .switch {
+      width:50px;
+      height:40px;
+      position:relative;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .toggle_circle{
+      width:25px;
+      height:25px;
+      background-color: black;;
+      position:absolute;
+      border-radius: 50%;
+      left:2px;
+      transform: translateX(0);
+      transition: 0.5s;
+
+    }
+
+    .circle_clicked{
+      background-color: gainsboro;
+      transform: translateX(12px);
+      transition: 0.5s;
+    }
+
+    .toggle_base{
+      width:40px;
+      height:30px;
+      background-color: gainsboro;;
+      position:absolute;
+      border-radius: 20px;
+
+      display:flex;
+      align-items: center;
+      transition: 0.5s;
+    }
+
+    .base_clicked{
+      background-color: black;;
+      transition: 0.5s;
+    }
+
+    .title{
+      font-weight: bold;
+    }
+
+  </style>
+  
+</head>
+<body>
+  <h1>토글 버튼</h1>
+
+  <label for="toggle" class="toggle_label">
+      <div class="switch">
+          <input type="checkbox" id="toggle"/>        
+          <div class="toggle_base">
+            <div class="toggle_circle"></div>
+          </div>
+      </div>
+      <span class="title">OFF</span>
+  </label>
+
+  <script>
+    let checkBox = document.querySelector('#toggle');
+    let toggleCircle = document.querySelector('.toggle_circle');
+    let toggleBase = document.querySelector('.toggle_base');
+    let onOff = document.querySelector('.title');
+
+    function ischecked (){
+      if(checkBox.checked){
+        toggleBase.classList.add('base_clicked');
+        toggleCircle.classList.add('circle_clicked');
+        onOff.textContent='On'
+        } 
+
+      else {
+        toggleBase.classList.remove('base_clicked');
+        toggleCircle.classList.remove('circle_clicked');
+        onOff.textContent='Off'
+      }
+    }
+
+    checkBox.addEventListener('click',ischecked);
+
+  </script>
+
+</body>
+</html>
